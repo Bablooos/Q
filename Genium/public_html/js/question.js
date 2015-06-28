@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 
-function Question( parent ) {
+/* global Client */
+
+Client.setObject( 'question', function( parent ) {
 
     // Preparing visual objects for answering
     var box = createelement( 'elephant_questionbox' );
@@ -16,13 +18,22 @@ function Question( parent ) {
         <div class="elephant_question_answers"</div>\
         ';
     parent.appendChild( box );
+    var title = box.querySelector( '.elephant_question_title' );
+    var theme = box.querySelector( '.elephant_question_theme' );
+    var image = box.querySelector( '.elephant_question_image' );
+    var text  = box.querySelector( '.elephant_question_text' );
 
     // Handling server data
-    function handle( data ) {
-
-    }
+    Client.listen( 'question', function( data ) {
+        function revise( str, o ) {
+            if( str in data ) o.textContent = data[str];
+        }
+        revise( 'title', title );
+        revise( 'theme', theme );
+        revise( 'text', text );
+    });
 
     return {
 
     };
-};
+});
