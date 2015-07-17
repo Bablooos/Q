@@ -1,0 +1,123 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : Jun 28, 2015, 4:08:12 PM
+    Author     : Beetle
+*/
+@mixin displayflex {
+    display:        flex;
+    display:        -webkit-flex;
+}
+
+@mixin flex-flow($value) {
+    flex-flow:         $value;
+    -webkit-flex-flow: $value;
+}
+
+@mixin flex-wrap($value) {
+    flex-wrap:         $value;
+    -webkit-flex-wrap: $value;
+}
+
+@mixin flex-grow($value) {
+    flex-grow:         $value;
+    -webkit-flex-grow: $value;
+}
+
+@mixin justify-content($value) {
+    justify-content:    $value;
+    -webkit-justify-content:    $value;
+}
+
+@mixin align-items($value) {
+    align-items:    $value;
+    -webkit-align-items:    $value;
+}
+
+@mixin flex-basis($value) {
+    flex-basis:    $value;
+    -webkit-flex-basis:    $value;
+}
+
+.elephant-question {
+//    background:     black;
+//    color:          white;
+    width:          100%;
+    height:         100%;
+    @include        displayflex;
+    @include        flex-flow(column);
+    @include        align-items(center);
+
+    text-align:     center;
+    * {
+        box-sizing:     border-box;
+    }
+
+    .qtitle {
+        color:          #444;
+        text-align:     center;
+        font-size:      smaller;
+    }
+
+    .qqblock {
+        width:          96%;
+        height:         30%;
+        border:         1px solid #AAA;
+        border-radius:  6px;
+        padding:        5px;
+        margin-top:     5px;
+    }
+
+    .qtheme {
+        font-size:      smaller;
+        color:          #CCC;
+    }
+
+    .qanswers {
+        margin-top:     0.5em;
+        width:          100%;
+        @include        displayflex;
+        @include        flex-wrap(wrap);
+        @include        justify-content(space-around);
+    }
+
+    .qanswer {
+        @include        flex-grow(1);
+        @include        flex-basis(40%);
+        min-width:      10em;
+        height:         3em;
+        line-height:    3em;
+        border:         1px solid #AAA;
+        border-radius:  5px;
+        cursor:         pointer;
+
+        margin:         0.5em 10px 0 10px;
+
+        &:empty {
+            display:    none;
+        }
+        &:hover {
+            background-color: #eee;
+        }
+    }
+
+    .qpool {
+        flex-basis:     1px;
+        @include        flex-grow(1);
+        max-height:     5em;
+    }
+
+    .qtimer {
+        width:          75%;
+        height:         10px;
+        border:         1px solid black;
+        border-radius:  5px;
+        margin-bottom:  10px;
+        background-image: linear-gradient(to right, lightgreen, lightgreen);
+        background-size:100%;
+        background-repeat: repeat-y;
+    }
+}
