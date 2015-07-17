@@ -42,6 +42,11 @@ and open the template in the editor.
     -webkit-flex-basis:    $value;
 }
 
+@mixin align-self($value) {
+    align-self:         $value;
+    -webkit-align-self: $value;
+}
+
 .elephant-question {
 //    background:     black;
 //    color:          white;
@@ -63,12 +68,12 @@ and open the template in the editor.
     }
 
     .qqblock {
-        width:          96%;
+        @include        align-self(stretch);
         height:         30%;
         border:         1px solid #AAA;
         border-radius:  6px;
         padding:        5px;
-        margin-top:     5px;
+        margin:         5px 10px 0 10px;
     }
 
     .qtheme {
@@ -87,7 +92,7 @@ and open the template in the editor.
     .qanswer {
         @include        flex-grow(1);
         @include        flex-basis(40%);
-        min-width:      10em;
+        min-width:      8em;
         height:         3em;
         line-height:    3em;
         border:         1px solid #AAA;
@@ -105,19 +110,19 @@ and open the template in the editor.
     }
 
     .qpool {
-        flex-basis:     1px;
+        @include        flex-basis(1px);
         @include        flex-grow(1);
         max-height:     5em;
     }
 
     .qtimer {
-        width:          75%;
-        height:         10px;
-        border:         1px solid black;
-        border-radius:  5px;
-        margin-bottom:  10px;
-        background-image: linear-gradient(to right, lightgreen, lightgreen);
-        background-size:100%;
-        background-repeat: repeat-y;
+        width:              75%;
+        height:             10px;
+        border:             1px solid lightgray;
+        border-radius:      5px;
+        margin-bottom:      10px;
+        background-image:   linear-gradient(to right, lightgreen, lightgreen);
+        background-size:    0;
+        background-repeat:  repeat-y;
     }
 }
