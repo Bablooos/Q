@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 var Client = (function () {
     var queue   = [];
     var tags    = {};
@@ -21,7 +16,7 @@ var Client = (function () {
         // Check if document comes to loading state after require
         if( document.readyState==='loading' ) return;
         if( queue.length )
-            exec(queue);
+            exec( queue );
         queue = [];
     }
 
@@ -91,8 +86,3 @@ var Client = (function () {
     };
 }());
 
-function createelement( classname, tag ) {
-    var o = document.createElement( tag || 'div' );
-    o.className = classname;
-    return o;
-}

@@ -1,38 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// Question
+// select-answer questions
+//
 
-/* global Client */
-
-Client.setObject( 'question', function( parent ) {
+export function makeQuestion( parent ) {
     var myQuestion = {id: 0};
     var qTimeout = 0;               // Handler ID for timeout
 
     // Preparing visual objects for answering
     var box = createelement( 'elephant-question' );
-    box.innerHTML = '\
-        <div class="qtitle"></div>\
-        <div class="qqblock">\
-         <div class="qtheme"></div>\
-         <div class="qimage"></div>\
-         <div class="qtext"></div>\
-        </div>\
-        <div class="qanswers">\
-         <div class="qanswer" data-answer="1"></div>\
-         <div class="qanswer" data-answer="2"></div>\
-         <div class="qanswer" data-answer="3"></div>\
-         <div class="qanswer" data-answer="4"></div>\
-         <div class="qanswer" data-answer="5"></div>\
-         <div class="qanswer" data-answer="6"></div>\
-         <div class="qanswer" data-answer="7"></div>\
-        </div>\
-        <div class="qcomment"></div>\
-        <div class="qpool"></div>\
-        <div class="qtimer"></div>\
-        <button class="mybutton">Continue</button>\
-    ';
+    box.innerHTML = `
+        <div class="qtitle"></div>
+        <div class="qqblock">
+         <div class="qtheme"></div>
+         <div class="qimage"></div>
+         <div class="qtext"></div>
+        </div>
+        <div class="qanswers">
+         <div class="qanswer" data-answer="1"></div>
+         <div class="qanswer" data-answer="2"></div>
+         <div class="qanswer" data-answer="3"></div>
+         <div class="qanswer" data-answer="4"></div>
+         <div class="qanswer" data-answer="5"></div>
+         <div class="qanswer" data-answer="6"></div>
+         <div class="qanswer" data-answer="7"></div>
+        </div>
+        <div class="qcomment"></div>
+        <div class="qpool"></div>
+        <div class="qtimer"></div>
+        <button class="mybutton">Continue</button>
+    `;
     parent.appendChild( box );
     var title = box.querySelector( '.qtitle' );
     var theme = box.querySelector( '.qtheme' );
@@ -188,7 +184,7 @@ Client.setObject( 'question', function( parent ) {
 
     return {
     };
-} );
+}
 
 
 //Client.push( '[ "question", {\
